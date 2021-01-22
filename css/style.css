@@ -11,7 +11,6 @@
 
 ======================================================*/
 
-
 /* General CSS */
 
 html,
@@ -35,7 +34,6 @@ h3 {
     text-transform: uppercase;
 }
 
-
 /*====================================================
                         HOME
 ======================================================*/
@@ -46,7 +44,12 @@ h3 {
 
 #home-cover {
     height: 100%;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("../img/bg-home.jpg");
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url("../img/bg-home.jpg");
 }
 
 #home-content-box {
@@ -75,7 +78,397 @@ h3 {
     margin: 20px 0 20px 0;
 }
 
+/*====================================================
+                        MOVIE
+======================================================*/
 
+.movie-btn,
+.movie-btn:link,
+.movie-btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer;
+}
+
+.movie-btn:hover {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+    transform: translateY(-3px);
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.movie-btn:hover::after {
+    -webkit-transform: scaleX(1.4) scaleY(1.6);
+    -ms-transform: scaleX(1.4) scaleY(1.6);
+    -o-transform: scaleX(1.4) scaleY(1.6);
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.movie-btn:active,
+.movie-btn:focus {
+    outline: none;
+    -webkit-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transform: translateY(-1px);
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.movie-btn--white {
+    color: #777;
+    background-color: #fff;
+}
+.movie-btn--white::after {
+    background-color: #fff;
+}
+
+.movie-btn--green {
+    color: #fff;
+    background-color: #e64a19;
+}
+.movie-btn--green::after {
+    color: #fff;
+    background-color: #e64a19;
+}
+
+.movie-btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+}
+
+.movie-btn--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+}
+
+.movie-btn-text:link,
+.movie-btn-text:visited {
+    font-size: 1.6rem;
+    color: #55c57a;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #55c57a;
+    padding: 7px;
+    transition: all 0.2s;
+}
+
+.movie-btn-text:hover {
+    background-color: #55c57a;
+    color: #fff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.movie-btn-text:active {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+/* btn ends here*/
+.card {
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+    height: 52rem;
+}
+.card__side {
+    height: 52rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+.card__side--front {
+    background-color: #fff;
+}
+.card__side--back {
+    transform: rotateY(180deg);
+}
+.card__side--back-1 {
+    background-image: linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+.card__side--back-2 {
+    background-image: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+.card__side--back-3 {
+    background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+.card:hover .card__side--front {
+    transform: rotateY(-180deg);
+}
+.card:hover .card__side--back {
+    transform: rotateY(0);
+}
+.card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: color;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-position: top;
+}
+.card__picture--1 {
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(255, 185, 0, 0.4),
+            rgba(255, 119, 48, 0.4)
+        ),
+        url(../img/van.jpg);
+}
+.card__picture--2 {
+    background-image: linear-gradient(to right bottom, #7ed56f, #28b485),
+        url(../img/nat-6.jpg);
+}
+.card__picture--3 {
+    background-image: linear-gradient(to right bottom, #2998ff, #5643fa),
+        url(../img/nat-7.jpg);
+}
+.card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #fff;
+    position: absolute;
+    text-align: right;
+    top: 17rem;
+    right: 1.5rem;
+    width: 75%;
+}
+.card__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+.card__heading-span--1 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(255, 185, 0, 0.85),
+        rgba(255, 119, 48, 0.85)
+    );
+}
+.card__heading-span--2 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.85),
+        rgba(40, 180, 133, 0.85)
+    );
+}
+.card__heading-span--3 {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(41, 152, 255, 0.85),
+        rgba(86, 67, 250, 0.85)
+    );
+}
+.card__details {
+    padding: 3rem;
+}
+.card__details ul {
+    list-style: none;
+    width: 80%;
+    margin: 0 auto;
+}
+.card__details ul li {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.card__details ul li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+.card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+}
+.card__price-box {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 8rem;
+}
+.card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+.card__price-value {
+    font-weight: 100;
+    font-size: 6rem;
+}
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    .card {
+        height: auto;
+        border-radius: 3px;
+        background-color: #fff;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    }
+    .card__side {
+        height: auto;
+        position: relative;
+        box-shadow: none;
+    }
+    .card__side--back {
+        transform: rotateY(0);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+    }
+    .card:hover .card__side--front {
+        transform: rotateY(0);
+    }
+    .card__details {
+        padding: 1rem 3rem;
+    }
+    .card__cta {
+        position: relative;
+        top: 0%;
+        left: 0;
+        transform: translate(0);
+        width: 100%;
+        padding: 7rem 4rem 4rem 4rem;
+    }
+    .card__price-box {
+        margin-bottom: 3rem;
+    }
+    .card__price-value {
+        font-size: 4rem;
+    }
+}
+/* card ends here */
+
+.section-tours {
+    background-color: #f7f7f7;
+    padding: 25rem 0 15rem 0;
+    margin-top: -10rem;
+}
+@media only screen and (max-width: 56.25em) {
+    .section-tours {
+        padding: 20rem 0 10rem 0;
+    }
+}
+
+.u-center-text {
+    text-align: center !important;
+}
+
+.u-margin-bottom-big {
+    margin-bottom: 8rem !important;
+}
+@media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+        margin-bottom: 5rem !important;
+    }
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient(to right, #e96238, #e64a19);
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: all 0.2s;
+    letter-spacing: 2px;
+}
+@media only screen and (max-width: 56.25em) {
+    .heading-secondary {
+        font-size: 3rem;
+    }
+}
+@media only screen and (max-width: 37.5em) {
+    .heading-secondary {
+        font-size: 2.5rem;
+    }
+}
+.heading-secondary:hover {
+    letter-spacing: 4px;
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.movie-row {
+    max-width: 114rem;
+    margin: 0 auto;
+}
+.movie-row:not(:last-child) {
+    margin-bottom: 8rem;
+}
+@media only screen and (max-width: 56.25em) {
+    .movie-row:not(:last-child) {
+        margin-bottom: 6rem;
+    }
+}
+@media only screen and (max-width: 56.25em) {
+    .movie-row {
+        max-width: 50rem;
+        padding: 0 3rem;
+    }
+}
+.movie-row::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.movie-row [class^="col-"] {
+    float: left;
+}
+.movie-row [class^="col-"]:not(:last-child) {
+    margin-right: 6rem;
+}
+@media only screen and (max-width: 56.25em) {
+    .movie-row [class^="col-"]:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 6rem;
+    }
+}
+@media only screen and (max-width: 56.25em) {
+    .movie-row [class^="col-"] {
+        width: 100% !important;
+    }
+}
+.movie-row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2);
+}
+.movie-row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3);
+}
+.movie-row .col-2-of-3 {
+    width: calc(2 * ((100% - 2 * 6rem) / 3) + 6rem);
+}
+.movie-row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4);
+}
+.movie-row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem);
+}
+.movie-row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem);
+}
 /*====================================================
                         PARALLAX (Generic)
 ======================================================*/
@@ -86,7 +479,6 @@ h3 {
     background-position: center;
     background-attachment: fixed;
 }
-
 
 /*====================================================
                         BUTTONS (Generic)
@@ -133,7 +525,6 @@ h3 {
     display: none;
 }
 
-
 /*====================================================
                        ANIMATE
 ======================================================*/
@@ -141,25 +532,24 @@ h3 {
 #home-cover,
 #home-heading,
 #home-btn {
-    -webkit-animation-duration: .5s;
-            animation-duration: .5s;
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
 }
 
 #home-cover {
-    -webkit-animation-delay: .1s;
-            animation-delay: .1s;
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
 }
 
 #home-heading {
-    -webkit-animation-delay: .5s;
-            animation-delay: .5s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
 #home-btn {
     -webkit-animation-delay: 1s;
-            animation-delay: 1s;
+    animation-delay: 1s;
 }
-
 
 /*====================================================
                        CONTENT (Generic)
@@ -186,7 +576,6 @@ h3 {
     background-color: #e64a19;
     margin: 0 auto 30px auto;
 }
-
 
 /*====================================================
                        SERVICES
@@ -224,7 +613,6 @@ h3 {
     padding-left: 85px;
 }
 
-
 /*====================================================
                        ABOUT
 ======================================================*/
@@ -233,7 +621,12 @@ h3 {
     width: 60%;
     height: 700px;
     float: left;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url(../img/bg-about-1.jpg);
+    background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.8)
+        ),
+        url(../img/bg-about-1.jpg);
     background-size: cover;
     background-position: top;
     /*border-left: 200px solid #fff;*/
@@ -273,7 +666,7 @@ h3 {
                        WORK
 ======================================================*/
 
-.row.no-gutters [class*=col-] {
+.row.no-gutters [class*="col-"] {
     padding-left: 0;
     padding-right: 0;
     background-color: #000;
@@ -285,10 +678,10 @@ h3 {
 }
 
 .img-wrapper img {
-    transition: transform .5 ease;
+    transition: transform 0.5 ease;
     width: 100%;
     height: 100%;
-    transition: all .5s;
+    transition: all 0.5s;
     opacity: 0.5;
     transform: scale(1.03);
 }
@@ -297,7 +690,7 @@ h3 {
     transform: scale(1.1);
     cursor: zoom-in;
     opacity: 1;
-    transition: all .5s;
+    transition: all 0.5s;
 }
 
 /*====================================================
@@ -374,7 +767,7 @@ h4.team-member-designation {
 }
 
 #testimonials .content-box {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 #customers-testimonials {
@@ -389,8 +782,8 @@ h4.team-member-designation {
 .testimonial blockquote {
     border: 0;
     font-family: Georgia, sans-serif;
-    font-style: italic;.
-    color: #fff;
+    font-style: italic;
+    .color: #fff;
     padding: 6px 150px;
     position: relative;
 }
@@ -410,13 +803,13 @@ h4.team-member-designation {
     position: absolute;
 }
 
-.testimonial blockquote::before{
+.testimonial blockquote::before {
     content: "\201C";
     top: 0;
     left: 100px;
 }
 
-.testimonial blockquote::after{
+.testimonial blockquote::after {
     content: "\201D";
     bottom: 0;
     right: 100px;
@@ -507,7 +900,7 @@ ul.pricing-spec li p {
 }
 
 #stats .content-box {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .stats-item {
@@ -542,8 +935,6 @@ ul.pricing-spec li p {
     margin: 0 20px;
 }
 
-
-
 /*====================================================
                        CONTACTS
 ======================================================*/
@@ -552,11 +943,11 @@ footer {
     background-color: #41464b;
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 5px solid rgba(0,0,0,0.1);
+    border-top: 5px solid rgba(0, 0, 0, 0.1);
 }
 
 #contact-left h3,
-#contact-right h3{
+#contact-right h3 {
     color: #fff;
     font-size: 27px;
     font-weight: 700;
@@ -599,7 +990,7 @@ form .form-control {
 ======================================================*/
 
 #footer-bottom {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 30px 0;
     margin-top: 60px;
 }
@@ -650,11 +1041,11 @@ form .form-control {
 
 .navbar {
     padding: 20px 0;
-    transition: all .5s ease-in-out;
+    transition: all 0.5s ease-in-out;
 }
 
 .vesco-top-nav {
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     padding: 7px 0;
 }
 
@@ -678,13 +1069,14 @@ form .form-control {
     font-size: 10px;
 }
 
-.navbar-nav > li > a:hover , .navbar-nav > li > a:focus {
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
     background: none;
     color: #e64a19;
 }
 
 .navbar-toggle {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     border: 1px solid #fff;
     border-radius: 0;
 }
